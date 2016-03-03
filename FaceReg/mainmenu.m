@@ -53,9 +53,11 @@ while (1==1)
         end
     end
     if (choice == 4)
+        
+         
         I = getcam();
         if (~isempty(I))           
-            filename = ['./',num2str(floor(rand()*10)+1),'.jpg'];
+            filename = ['./','1.jpg'];
             imwrite(I,filename);
             if (exist('myDatabase','var'))
                 facerec (filename,myDatabase,minmax);
