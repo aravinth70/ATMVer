@@ -38,12 +38,52 @@ fprintf(['This person is ',myDatabase{1,person_index},'.\n']);
 %[maxlogpseq,person_index] = max(results);
 %fprintf(['This person is ',myDatabase{1,person_index},'.']);
 r=(myDatabase{1,person_index});
-%r=([myDatabase{1,person_index},'.html']);
-%url = ['file:///E:\BSC_Project\2nd try\AI-New\mini project\face\r',r];
 
-url=['http://220.247.235.186//ATM/',r];
+%r=([myDatabase{1,person_index},'.html']);
+%url = ['file:///C:\xampp\htdocs\ATM\UserSite',r];
+
+url=['http://localhost:800/ATM/\SourcePHP/UserSite_backup/',r];
+%url=['http://220.247.235.186/ATM/',r];
  web(url, '-browser')
   
+
+
+% 
+% mkdir('C:\xampp\htdocs\ATM\FaceReg\datasync',r)
+% 
+% I = imread('1.jpg');
+%  imshow(I)
+% 
+% newpath = 'C:\xampp\htdocs\ATM\FaceReg\datasync\';
+% newfullpath=newpath;
+% 
+% copyfile('1.jpg',newfullpath)
+%  
+ 
+%  
+% 
+% Input_folder = '.\'; % folder with big images
+% Output_folder = 'C:\xampp\htdocs\ATM\FaceReg\datasync\';
+% D = dir([Input_folder  '1.jpg']);
+% Inputs = {D.name}';
+% Outputs = Inputs; % preallocate
+% 
+% for k = 1:length(Inputs)
+%     X = imread([Input_folder Inputs{k}]);
+%     idx = k; % index number
+%     Outputs{k} = regexprep(Outputs{k}, 'big', ['small_' num2str(idx)]);
+%     imwrite(X, [Output_folder Outputs{k}],'jpg')
+% end
+
+
+
+
+% Select captured file
+% path = 'C:\xampp\htdocs\ATM\FaceReg\';
+% filter = '*.jpg';
+% selectedFile = uigetfile(fullfile(path , filter));
+% imshow(selectedFile)
+
 
 
 
