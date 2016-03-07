@@ -40,7 +40,7 @@ if($count == true){
 	$balance = $row['Balance'];
 	
 	
-	//echo 'Welcome, '. $firstName.' '.$lastName;
+	//echo 'Welcome to ABC Face-ATM Service, '. $firstName.' '.$lastName;
 	
 	//mysql_close();
 
