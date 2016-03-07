@@ -22,7 +22,7 @@ for person=1:number_of_folders_in_data_folder
     for face_index=1:size(ufft,2)
         total = total + 1;
         filename = ['./data/',person_name,'/',person_folder_contents(ufft(face_index),1).name];        
-        answer_person_index = facerec(filename,myDatabase,minmax);
+        answer_person_index = facerectrain(filename,myDatabase,minmax);
         if (answer_person_index == person_index)
             recognition_rate = recognition_rate + 1;
         end        

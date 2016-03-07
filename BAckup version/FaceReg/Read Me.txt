@@ -1,0 +1,71 @@
+Installation
+-----------------------------------------------------------------------------------------
+1.	Load the Face ver 04 by mat lab
+2.	Copy and paste the Web site – ATM Folder into web root path
+3.	Create the database ATM
+4.	And run the “Mini Project\Web Site\ATM\db\Create \ATM_Verification.sql “ script on mysql and restore the database “Mini Project\Web Site\ATM\db\Create\backup DB\ATM.sql”
+5.	Via matlab run the login.m file  
+
+
+------------------------------------------------------------------------------------------
+
+Step 1
+
+Load the Root folder by matlab
+
+
+Step 2
+ Righ click the login.m and run the file
+
+Step 3
+
+Select the respective modle (Admin  USer)
+
+Step 4
+IF selected admin user
+
+user name :- admin
+pssword :- admin
+
+Add the user 
+
+click 5 to capture the photo by web cam (USB Web cam is recommanded)
+
+captured image will be saved in ./upload folder by random number with .jpg format.
+
+finally move the the collective of user image to data folder by creating user name folder
+
+
+click 1 to genrate the database
+click 2 to calculate the testing result rate
+
+
+
+click 3 for recognize the user by new uploaded image 
+click 4 for recofnize the user by webcam 
+
+click 6 for exit the system
+
+
+
+Image Saved Formate
+
+There are 10 different images of 20 distinct subjects. For some of the
+subjects, the images were taken at different times, varying lighting
+slightly, facial expressions (open/closed eyes, smiling/non-smiling)
+and facial details (glasses/no-glasses).  All the images are taken
+against a dark homogeneous background and the subjects are in
+up-right, frontal position (with tolerance for some side movement).
+
+The files are in PGM format and can be conveniently viewed using the 'xv'
+program. The size of each image is 92x112, 8-bit grey levels. The images
+are organised in 40 directories (one for each subject) named as:
+
+		user name= users folder name
+
+where name indicates the subject number (between 1 and 20). In each directory
+there are 10 different images of the selected subject named as:
+
+		Y.pgm
+
+where Y indicates which image for the specific subject (between 1 and 10).

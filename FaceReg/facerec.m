@@ -42,20 +42,23 @@ r=(myDatabase{1,person_index});
 %r=([myDatabase{1,person_index},'.html']);
 %url = ['file:///C:\xampp\htdocs\ATM\UserSite',r];
 
-url=['http://localhost:800/ATM/UserSite_backup/',r];
+url=['http://localhost:800/ATM/\SourcePHP/UserSite_backup/',r];
 %url=['http://220.247.235.186/ATM/',r];
  web(url, '-browser')
   
 
 
-
-mkdir('C:\xampp\htdocs\ATM\FaceReg\datasync',r)
-
-I = imread('1.jpg');
- imshow(I)
- 
-copyfile('1.jpg',newpath)
- 
+% 
+% mkdir('C:\xampp\htdocs\ATM\FaceReg\datasync',r)
+% 
+% I = imread('1.jpg');
+%  imshow(I)
+% 
+% newpath = 'C:\xampp\htdocs\ATM\FaceReg\datasync\';
+% newfullpath=newpath;
+% 
+% copyfile('1.jpg',newfullpath)
+%  
  
 %  
 % 
