@@ -1,0 +1,10 @@
+
+>> I=imread('11.jpg');
+>> image (I)
+>> I=rgb2gray(I);
+>> image (I)
+>> I = imresize(I,[92 112]);
+>> image (I)
+
+
+imwrite(I,'13.jpg');

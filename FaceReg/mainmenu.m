@@ -56,9 +56,12 @@ while (1==1)
         
          
         I = getcam();
-        if (~isempty(I))           
+        
+        if (~isempty(I))      
+             
             filename = ['./','1.jpg'];
             imwrite(I,filename);
+      
             if (exist('myDatabase','var'))
                 facerec (filename,myDatabase,minmax);
             end
@@ -70,7 +73,9 @@ while (1==1)
         I = getcam();
         if (~isempty(I))           
             filename = ['./upload/',num2str(floor(rand()*10)+1),'.jpg'];
+             
             imwrite(I,filename);
+              
            % if (exist('myDatabase','var'))
               %  facerec (filename,myDatabase,minmax);
            % end
