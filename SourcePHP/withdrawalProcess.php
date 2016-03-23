@@ -60,6 +60,7 @@ else{
 echo '<html> <head> <link rel="stylesheet" type="text/css" href="main.css"> </head> <body class="bg"> <center> <br><br><br><br><br><br><br> <br><br><br><br><br><br><br> Withdrawal successful!. Currently your account balance is '.$finalBalance.' . </center> </body> </html>';
 	echo '<html> <head> <link rel="stylesheet" type="text/css" href="main.css"> </head> <body class="bg"> <center> <p> <a class="input" style="text-decoration: none" href="logout.php" >End Transaction </a> </body> </html>';
 	include_once('send.php');
+	error_log("Error message cannot send email by admin\n", 3, "data.log");
 	
 }
 }
