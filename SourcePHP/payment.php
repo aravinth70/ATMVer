@@ -49,7 +49,7 @@ Payment Company
 Account Number <input class="input" type="text" name="account"required <br><br><br>
 Payment Amount <input class="input" type="text" name="amount" required><br><br>
 
-<input class="input" type="submit" name="submit" value="Withdraw" >
+<input class="input" type="submit" name="submit" value="DoPayment" >
 
 </form>
 

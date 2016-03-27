@@ -44,9 +44,8 @@ for person=1:size(data_folder_contents,1);
 end
 delta = (max_coeffs-min_coeffs)./([18 10 7]-eps);
 minmax = [min_coeffs;max_coeffs;delta];
-%incres by image name folder
-%for person_index=1:20
-for person_index=1:53
+%incres by image 
+for person_index=1:20
     for image_index=1:6
         for block_index=1:52
             blk_coeffs = myDatabase{2,person_index}{block_index,image_index};
@@ -72,8 +71,7 @@ EMITGUESS = (1/1260)*ones(7,1260);
 
 fprintf('\nTraining ...\n');
 %increase by image data
-%for person_index=1:20
-for person_index=1:53
+for person_index=1:20
     fprintf([myDatabase{1,person_index},' ']);
     seqmat = cell2mat(myDatabase{5,person_index})';
     [ESTTR,ESTEMIT]=hmmtrain(seqmat,TRGUESS,EMITGUESS,'Tolerance',.01,'Maxiterations',10,'Algorithm', 'BaumWelch');
