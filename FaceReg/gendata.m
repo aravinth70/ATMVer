@@ -3,8 +3,11 @@
 function [myDatabase,minmax] = gendata()
 
 eps=.000001;
-ufft = [1 5 6 8 10 2];
+ufft = [1 5 6 8 10];
+
+numberOfDirectories =57;
 fprintf ('Loading Faces ...\n');
+try
 data_folder_contents = dir ('./data');
 myDatabase = cell(0,0);
 person_index = 0;
@@ -15,6 +18,8 @@ for person=1:size(data_folder_contents,1);
         strcmp(data_folder_contents(person,1).name,'..') || ...
         (data_folder_contents(person,1).isdir == 0))
         continue;
+        
+    
     end
     person_index = person_index+1;
     person_name = data_folder_contents(person,1).name;
@@ -22,7 +27,7 @@ for person=1:size(data_folder_contents,1);
     fprintf([person_name,' ']);
     person_folder_contents = dir(['./data/',person_name,'/*.jpg']);  
     blk_cell = cell(0,0);
-    for face_index=1:6
+    for face_index=1:5
         I = imread(['./data/',person_name,'/',person_folder_contents(ufft(face_index),1).name]);
         I = imresize(I,[56 46]);
         I = ordfilt2(I,1,true(3));        
@@ -44,9 +49,10 @@ for person=1:size(data_folder_contents,1);
 end
 delta = (max_coeffs-min_coeffs)./([18 10 7]-eps);
 minmax = [min_coeffs;max_coeffs;delta];
-%incres by image 
-for person_index=1:20
-    for image_index=1:6
+%incres by image name folder
+%for person_index=1:20
+for person_index=1:numberOfDirectories
+    for image_index=1:5
         for block_index=1:52
             blk_coeffs = myDatabase{2,person_index}{block_index,image_index};
             min_coeffs = minmax(1,:);
@@ -71,7 +77,8 @@ EMITGUESS = (1/1260)*ones(7,1260);
 
 fprintf('\nTraining ...\n');
 %increase by image data
-for person_index=1:20
+%for person_index=1:20
+for person_index=1:numberOfDirectories
     fprintf([myDatabase{1,person_index},' ']);
     seqmat = cell2mat(myDatabase{5,person_index})';
     [ESTTR,ESTEMIT]=hmmtrain(seqmat,TRGUESS,EMITGUESS,'Tolerance',.01,'Maxiterations',10,'Algorithm', 'BaumWelch');
@@ -85,3 +92,24 @@ for person_index=1:20
 end
 fprintf('done.\n');
 save DATABASE myDatabase minmax
+
+
+
+
+
+
+
+
+catch err
+   %open file
+   fid = fopen('Error/errorFile','a+');
+   % write the error to file
+   % first line: message
+ fprintf(fid,'.\n');
+   fprintf(fid,'%s\n',err.message );
+   fprintf(fid,'Assinged users images are missing');
+
+   % close file
+   fclose(fid)
+   
+end

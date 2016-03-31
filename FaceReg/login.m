@@ -1,8 +1,6 @@
 
 
-
-
-choice=menu('WelCome To Face Recognition ATM',...
+choice=menu('WelCome To Face Recognition ATM system',...
                 '1.Admin Login',...
                 '2.User',...
                 '3.exit'  );      
@@ -11,7 +9,7 @@ choice=menu('WelCome To Face Recognition ATM',...
        passwordlog();  
     end
     if (choice == 2)
-    menu1();
+    usermenu();
     end;
      if (choice == 3)
 close(code)
