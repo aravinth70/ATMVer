@@ -4,10 +4,12 @@
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body class="bg">
+
 <center>
 <br><br><br><br><br><br><br><br><br><br><br>
 <div>
-  <form name="login" action="login.php" method="POST">
+  <form name="login" action="login.php" method="POST" onsubmit ="allnumeric(NumberOnly)">
+  
  <br><br><br><br>
 <div>
 <p id="demo"></p>
@@ -18,14 +20,53 @@ document.getElementById("demo").innerHTML = Date();
 
  
   <label><B>Please Enter Your PIN</B></label> <br><br>
- 
+
+  <script type="text/javascript">
+function allnumeric(uzip)
+{
+	var number =/^[0-9]+$/;
+	if (uzip.value.match(number))
+	{
+		return true;
+	}
 	
-<input type="password" name="PIN" class="input" required>
+	else
+	{
+		alert ("vales only");
+		
+	}
+	uzip.focus();
+    return false;
+
+}
+
+</script>
+
+ 
+<input type="password" name="PIN" class="input"  id="NumberOnly" required>
+
 <br><br>
   
 </div>
 <input class="input" type="submit" name="submit" value="Submit" required>
 <br><br>
+
+<a href='errorinput.txt'>Text file</a>
+
+
+<?php
+$txt = "errorinput.txt"; 
+$fh = fopen($txt, 'w+'); 
+if (isset($_POST['PIN']) && isset($_POST['PIN'])) { // check if both fields are set
+   $txt=$_POST['PIN'].' - '.$_POST['PIN']; 
+   file_put_contents('errorinput.txt',$txt."\n",FILE_APPEND); // log to data.txt 
+   exit();
+}
+    fwrite($fh,$txt); // Write information to the file
+    fclose($fh); // Close the file
+    ?>
+
+
 
 </form>
 </div>

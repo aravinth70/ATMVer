@@ -30,3 +30,30 @@ for person=1:number_of_folders_in_data_folder
 end
 recognition_rate = recognition_rate/total*100;
 fprintf(['\nRecognition Rate is ',num2str(recognition_rate),'%% for a total of ',num2str(total),' unseen faces.\n']);
+
+minVal = 50;
+
+
+if ( recognition_rate >= minVal)
+ 
+ disp('Value is above than minimum value.')
+    
+else
+    
+   fid = fopen('Error/errorFile','a+');
+
+   fprintf(fid,'.\n' );
+  
+   fprintf(fid,'bad result');
+
+   % close file
+   fclose(fid)
+end
+
+
+
+
+
+
+
+

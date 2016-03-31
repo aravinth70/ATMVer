@@ -14,7 +14,8 @@ while (1==1)
                 '3.Recognize from Image',...
                 '4.Recognize from Webcam',...
                 '5.Upload the Image',....
-                '6.Exit');
+                '6.Register account',....
+                '7.Exit');
             
     if (choice ==1)
         if (~exist('DATABASE.mat','file'))
@@ -57,7 +58,7 @@ while (1==1)
          
         I = getcam();
         if (~isempty(I))           
-            filename = ['./','1.jpg'];
+            filename = ['./Capture/','1.jpg'];
             imwrite(I,filename);
             if (exist('myDatabase','var'))
                 facerec (filename,myDatabase,minmax);
@@ -75,11 +76,20 @@ while (1==1)
               %  facerec (filename,myDatabase,minmax);
            % end
         end
-    end
+     end
     
     
     
-    if (choice == 6)
+       if (choice == 6)
+       
+url=['http://localhost/ATM/\SourcePHP/userreg.php'];
+web(url, '-browser')
+ 
+       end    
+    
+     
+     
+    if (choice == 7)
         clear choice choice2
         
         login();
