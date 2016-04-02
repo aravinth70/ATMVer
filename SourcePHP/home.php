@@ -16,6 +16,7 @@
  <a style="text-decoration: none;" class="input"  href="withdraw.php"> Cash Withdrawal </a> 
 <a style="text-decoration: none;" class="input" href="report.php"> Statement </a>
 <a style="text-decoration: none;" class="input" href="payment.php"> Online Payment </a>
+<a style="text-decoration: none;" class="input" href="changepin.php"> Change PIN </a>
 </p> 
 
 

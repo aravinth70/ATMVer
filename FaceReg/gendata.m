@@ -5,7 +5,7 @@ function [myDatabase,minmax] = gendata()
 eps=.000001;
 ufft = [1 5 6 8 10];
 
-numberOfDirectories =57;
+numberOfDirectories =3;
 fprintf ('Loading Faces ...\n');
 try
 data_folder_contents = dir ('./data');

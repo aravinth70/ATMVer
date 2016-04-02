@@ -23,12 +23,11 @@ $sql1 = "INSERT INTO log(PIN,LogDate,IPAddress)VALUES ('$PIN',('$date'),'$ip')";
 $result1 = mysql_query($sql1,$con);
 
 $sql = "SELECT * FROM ATM.Verification WHERE PIN = '$PIN' ";
-
 $result = mysql_query($sql,$con);
 $count = mysql_num_rows($result);
 
 if($count == true){
-  
+   
   
   
   while($row = mysql_fetch_array($result)){
@@ -77,7 +76,10 @@ $_SESSION["Balance"] = $balance;
 }
 elseif($count != true){
 	
+	error_log("login fail\n", 3, "data.log");
 	include_once('error.php');
+	
+
 }
   /*
   elseif ($result == false){

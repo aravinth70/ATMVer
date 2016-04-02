@@ -43,50 +43,49 @@ fprintf(['This person is ',myDatabase{1,person_index},'.\n']);
 %fprintf(['This person is ',myDatabase{1,person_index},'.']);
 r=(myDatabase{1,person_index});
 
+
 %r=([myDatabase{1,person_index},'.html']);
 %url = ['file:///C:\xampp\htdocs\ATM\UserSite',r];
 
-url=['http://localhost:800/ATM/\SourcePHP/UserSite_backup/',r];
+
+
+%URL For host file debug
+%url=['http://220.247.235.186/ATM/',r];
+
+
+%URL For host file debug
+%url=['http://faceatm.site88.net/SourcePHP/',r];
+
+
+%URL For host file
+url=['http://localhost/ATM/\SourcePHP/UserSite/',r];
+%url=['http://localhost/ATM/\SourcePHP/'];
 %url=['http://220.247.235.186/ATM/',r];
  web(url, '-browser')
-  
-
-
-% 
-% mkdir('C:\xampp\htdocs\ATM\FaceReg\datasync',r)
-% 
-% I = imread('1.jpg');
-%  imshow(I)
-% 
-% newpath = 'C:\xampp\htdocs\ATM\FaceReg\datasync\';
-% newfullpath=newpath;
-% 
-% copyfile('1.jpg',newfullpath)
-%  
  
-%  
-% 
-% Input_folder = '.\'; % folder with big images
-% Output_folder = 'C:\xampp\htdocs\ATM\FaceReg\datasync\';
-% D = dir([Input_folder  '1.jpg']);
-% Inputs = {D.name}';
-% Outputs = Inputs; % preallocate
-% 
-% for k = 1:length(Inputs)
-%     X = imread([Input_folder Inputs{k}]);
-%     idx = k; % index number
-%     Outputs{k} = regexprep(Outputs{k}, 'big', ['small_' num2str(idx)]);
-%     imwrite(X, [Output_folder Outputs{k}],'jpg')
-% end
+ mkdir('C:\xampp\htdocs\ATM\FaceReg\datasync',r)
+ 
+ 
+ 
 
+% Sync image to datasync folder
+% Sync image to WEB PORTAL
+Input_folder = '.\Capture\'; % folder with big images
+Output_folder = 'C:\xampp\htdocs\ATM\FaceReg\datasync\captured\';
+Output_folder2 = 'C:\xampp\htdocs\ATM\SourcePHP\images\';
+D = dir([Input_folder '1.jpg']);
+Inputs = {D.name}';
+Outputs = Inputs; % preallocate
+Outputs2 = Inputs; 
 
-
-
-% Select captured file
-% path = 'C:\xampp\htdocs\ATM\FaceReg\';
-% filter = '*.jpg';
-% selectedFile = uigetfile(fullfile(path , filter));
-% imshow(selectedFile)
+for k = 1:length(Inputs)
+    X = imread([Input_folder Inputs{k}]);
+    idx = k; % index number
+    Outputs{k} = regexprep(Outputs{k}, 'big', ['small_' num2str(idx)]);
+    Outputs2{k} = regexprep(Outputs2{k}, 'big', ['small_' num2str(idx)]);
+    imwrite(X, [Output_folder Outputs{k}],'jpg')
+    imwrite(X, [Output_folder2 Outputs2{k}],'jpg')
+end
 
 
 
