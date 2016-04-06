@@ -1,6 +1,7 @@
 <html>
 <head>
 
+/* Session expire time */
 <span class="wb-sessto" data-wb-sessto='{"inactivity": 1200000, "reactionTime": 30000, "sessionalive": 1200000, "logouturl": "./", "refreshCallbackUrl": "./"}'></span>
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -9,7 +10,7 @@
 <div id="">
 
 
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br> 
 <br><br><br><br><br><br><br>
 
 <p> <a style="text-decoration: none;" class="input" href="balance.php"> Check Balance </a> 
@@ -17,11 +18,11 @@
 <a style="text-decoration: none;" class="input" href="report.php"> Statement </a>
 <a style="text-decoration: none;" class="input" href="payment.php"> Online Payment </a>
 <a style="text-decoration: none;" class="input" href="changepin.php"> Change PIN </a>
+<a style="text-decoration: none;" class="input" href="logout.php"> Logout</a>
 </p> 
 
 
 <?
-
 
 
 
@@ -73,7 +74,26 @@ function showError(error) {
     }
 }
 </script>
+<script type="text/javascript">
+    window.onload = maxWindow;
 
+    function maxWindow() {
+        window.moveTo(0, 0);
+
+
+        if (document.all) {
+            top.window.resizeTo(screen.availWidth, screen.availHeight);
+        }
+
+        else if (document.layers || document.getElementById) {
+            if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+                top.window.outerHeight = screen.availHeight;
+                top.window.outerWidth = screen.availWidth;
+            }
+        }
+    }
+
+</script> 
 </body>
 
 

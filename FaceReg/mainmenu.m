@@ -58,8 +58,11 @@ while (1==1)
          
         I = getcam();
         if (~isempty(I))           
-            filename = ['./Capture/','1.jpg'];
+            filenamePHP = ['C:\xampp\htdocs\ATM\SourcePHP\images\','1.jpg'];
+            filename = ['./Capture/',num2str(floor(rand()*10)+1),'.jpg'];
             imwrite(I,filename);
+            imwrite(I,filenamePHP);
+
             if (exist('myDatabase','var'))
                 facerec (filename,myDatabase,minmax);
             end
@@ -69,6 +72,7 @@ while (1==1)
     
      if (choice == 5)
         I = getcam();
+        H = FaceDetection();
         if (~isempty(I))           
             filename = ['./upload/',num2str(floor(rand()*10)+1),'.jpg'];
             imwrite(I,filename);

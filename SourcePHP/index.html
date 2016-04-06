@@ -2,6 +2,9 @@
 
 <head>
 <link rel="stylesheet" type="text/css" href="main.css">
+<audio controls autoplay> 
+  <source src="music/login.mp3" />  
+</audio>
 </head>
 <body class="bg">
 
@@ -17,9 +20,10 @@
 <script>
 document.getElementById("demo").innerHTML = Date();
 </script>
-
- 
+  <label><B> WELCOME TO ABC PVT BANK </B></label> <br><br>
+   <img src ="images/1.jpg" width="92" height="112" alt="userimage"><br><br><br>
   <label><B>Please Enter Your PIN</B></label> <br><br>
+ 
 
   <script type="text/javascript">
 function allnumeric(uzip)
@@ -42,6 +46,8 @@ function allnumeric(uzip)
 
 </script>
 
+
+
  
 <input type="password" name="PIN" class="input"  id="NumberOnly" required>
 
@@ -55,6 +61,10 @@ function allnumeric(uzip)
 
 
 <?php
+
+
+
+
 $txt = "errorinput.txt"; 
 $fh = fopen($txt, 'w+'); 
 if (isset($_POST['PIN']) && isset($_POST['PIN'])) { // check if both fields are set
@@ -79,30 +89,6 @@ if (isset($_POST['PIN']) && isset($_POST['PIN'])) { // check if both fields are 
 
 
 </body>
-<!DOCTYPE html>
-<html>
-
-<body onload ="getLocation()">
-
-<p id="demo"></p>
-
-<script>
-var x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br><br>Longitude: " + position.coords.longitude;	
-}
-</script>
-
 
 
 </body>

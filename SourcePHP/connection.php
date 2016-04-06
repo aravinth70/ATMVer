@@ -10,9 +10,6 @@ $username = 'root';
 $password = '';
 $dbname = 'ATM';
 
-//$sql1 = "Select id from ienorgau_cj.city ";
-//$number = $_POST["number"];
 
-//$sql2 = "SELECT * FROM sms.customer WHERE id='$number'";
 
 ?>

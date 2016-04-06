@@ -1,13 +1,21 @@
 
-
+%Function for generation Database
 function [myDatabase,minmax] = gendata()
 
+
 eps=.000001;
+%Below array file names will be train
 ufft = [1 5 6 8 10];
 
-numberOfDirectories =57;
+%define number of person count 
+
+
+numberOfDirectories =77;
+
+
 fprintf ('Loading Faces ...\n');
 try
+    %person image folder path
 data_folder_contents = dir ('./data');
 myDatabase = cell(0,0);
 person_index = 0;
@@ -19,7 +27,7 @@ for person=1:size(data_folder_contents,1);
         (data_folder_contents(person,1).isdir == 0))
         continue;
         
-    
+ %for loop for image folder and person image array   
     end
     person_index = person_index+1;
     person_name = data_folder_contents(person,1).name;
@@ -43,14 +51,15 @@ for person=1:size(data_folder_contents,1);
         end
     end
     myDatabase{2,person_index} = blk_cell;
+    %define 10 image per person
     if (mod(person_index,10)==0)
         fprintf('\n');
     end
 end
 delta = (max_coeffs-min_coeffs)./([18 10 7]-eps);
 minmax = [min_coeffs;max_coeffs;delta];
+
 %incres by image name folder
-%for person_index=1:20
 for person_index=1:numberOfDirectories
     for image_index=1:5
         for block_index=1:52
@@ -77,7 +86,6 @@ EMITGUESS = (1/1260)*ones(7,1260);
 
 fprintf('\nTraining ...\n');
 %increase by image data
-%for person_index=1:20
 for person_index=1:numberOfDirectories
     fprintf([myDatabase{1,person_index},' ']);
     seqmat = cell2mat(myDatabase{5,person_index})';
@@ -94,11 +102,7 @@ fprintf('done.\n');
 save DATABASE myDatabase minmax
 
 
-
-
-
-
-
+%Error log for image missing and others
 
 catch err
    %open file
