@@ -53,4 +53,18 @@ USB WEBCAM IS NOT CONNECTED.
 Undefined variable "vision" or class "vision.CascadeObjectDetector".
 USB WEBCAM IS NOT CONNECTED.
 Undefined variable "vision" or class "vision.CascadeObjectDetector".
-USB WEBCAM IS NOT CONNECTED
+USB WEBCAM IS NOT CONNECTED.
+The FORMAT specified is not supported by this device. See IMAQHWINFO(ADAPTORNAME).
+USB WEBCAM IS NOT CONNECTED.
+The FORMAT specified is not supported by this device. See IMAQHWINFO(ADAPTORNAME).
+USB WEBCAM IS NOT CONNECTED.
+The FORMAT specified is not supported by this device. See IMAQHWINFO(ADAPTORNAME).
+USB WEBCAM IS NOT CONNECTED.
+The FORMAT specified is not supported by this device. See IMAQHWINFO(ADAPTORNAME).
+USB WEBCAM IS NOT CONNECTED.
+The FORMAT specified is not supported by this device. See IMAQHWINFO(ADAPTORNAME).
+USB WEBCAM IS NOT CONNECTED.
+Attempted to access ufft(6); index out of bounds because numel(ufft)=5.
+Assinged users images are missing.
+Attempted to access ufft(6); index out of bounds because numel(ufft)=5.
+Assinged users images are missing

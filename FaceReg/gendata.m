@@ -17,10 +17,15 @@ fprintf ('Loading Faces ...\n');
 try
     %person image folder path
 data_folder_contents = dir ('./data');
+
+%initial the database
 myDatabase = cell(0,0);
 person_index = 0;
 max_coeffs = [-Inf -Inf -Inf]; % inf
 min_coeffs = [ Inf  0  0];
+
+%initial the folder name into person name
+
 for person=1:size(data_folder_contents,1);
     if (strcmp(data_folder_contents(person,1).name,'.') || ...
         strcmp(data_folder_contents(person,1).name,'..') || ...
@@ -35,14 +40,19 @@ for person=1:size(data_folder_contents,1);
     fprintf([person_name,' ']);
     person_folder_contents = dir(['./data/',person_name,'/*.jpg']);  
     blk_cell = cell(0,0);
+    %selected 5 images into loop
     for face_index=1:5
         I = imread(['./data/',person_name,'/',person_folder_contents(ufft(face_index),1).name]);
         I = imresize(I,[56 46]);
-        I = ordfilt2(I,1,true(3));        
+        I = ordfilt2(I,1,true(3));
         blk_index = 0;
+        
+        %extract the block into 52 HMM
         for blk_begin=1:52
             blk_index=blk_index+1;
-            blk = I(blk_begin:blk_begin+4,:);            
+            blk = I(blk_begin:blk_begin+4,:); %?     
+ 
+                 %SVD extract the feature   
             [U,S,V] = svd(double(blk));
             blk_coeffs = [U(1,1) S(1,1) S(2,2)];
             max_coeffs = max([max_coeffs;blk_coeffs]);
@@ -54,8 +64,11 @@ for person=1:size(data_folder_contents,1);
     %define 10 image per person
     if (mod(person_index,10)==0)
         fprintf('\n');
+      
     end
 end
+
+
 delta = (max_coeffs-min_coeffs)./([18 10 7]-eps);
 minmax = [min_coeffs;max_coeffs;delta];
 
@@ -96,6 +109,8 @@ for person_index=1:numberOfDirectories
     myDatabase{6,person_index}{1,2} = ESTEMIT;
     if (mod(person_index,10)==0)
         fprintf('\n');
+           imshow(I) 
+        
     end
 end
 fprintf('done.\n');
